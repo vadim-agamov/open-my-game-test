@@ -13,9 +13,4 @@ namespace Modules.UIService
 
         void Release(UIPresenter presenter);
     }
-
-    public static class UIServiceExtensions
-    {
-        public static void Release(this UIPresenter presenter, IUIService service) => service.Release(presenter);
-    }
 }

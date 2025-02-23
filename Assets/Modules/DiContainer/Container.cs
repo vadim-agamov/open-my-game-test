@@ -20,7 +20,8 @@ namespace Modules.DiContainer
                 }
             }
 
-            throw new InvalidOperationException($"[{nameof(Container)}] Get: instance of type {typeof(T).Name} is not registered.");
+            throw new InvalidOperationException(
+                $"[{nameof(Container)}] Get: instance of type {typeof(T).Name} is not registered.");
         }
 
         public static Object Resolve(Type instance)
@@ -32,8 +33,9 @@ namespace Modules.DiContainer
                     return s;
                 }
             }
-        
-            throw new InvalidOperationException($"[{nameof(Container)}] Get: instance of type {instance.Name} is not registered.");
+
+            throw new InvalidOperationException(
+                $"[{nameof(Container)}] Get: instance of type {instance.Name} is not registered.");
         }
 
         public static T[] AllInstances<T>() => _instances.OfType<T>().ToArray();
@@ -42,20 +44,21 @@ namespace Modules.DiContainer
         {
             if (_instances.Any(i => i is T))
             {
-                throw new InvalidOperationException($"[{nameof(Container)}] Bind: instance of type {typeof(T)} already registered.");
+                throw new InvalidOperationException(
+                    $"[{nameof(Container)}] Bind: instance of type {typeof(T)} already registered.");
             }
-            
+
             Debug.Log($"[{nameof(Container)}] Bind {typeof(T).Name}");
             _instances.Add(instance);
             return instance;
         }
-        
+
         public static T Inject<T>(T instance) where T : class
         {
             DependencyUtils.InjectDependencies(instance);
             return instance;
         }
-        
+
         public static T BindAndInject<T>(T instance) where T : class
         {
             Bind(instance);
@@ -81,7 +84,13 @@ namespace Modules.DiContainer
                 }
             }
 
-            throw new InvalidOperationException($"[{nameof(Container)}] UnRegister: No instance of type {typeof(T).Name}");
+            throw new InvalidOperationException(
+                $"[{nameof(Container)}] UnRegister: No instance of type {typeof(T).Name}");
         }
+    }
+    
+    public static class ContainerExtensions
+    {
+        public static T WithDependencies<T>(this T instance) where T : class => Container.Inject(instance);
     }
 }

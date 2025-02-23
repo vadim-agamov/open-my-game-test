@@ -44,8 +44,7 @@ namespace Modules.UIService
             Object.DontDestroyOnLoad(rootGameObject);
         }
 
-        async UniTask<TPresenter> IUIService.Create<TModel, TUIView, TPresenter>(TModel model, string key,
-            CancellationToken token)
+        async UniTask<TPresenter> IUIService.Create<TModel, TUIView, TPresenter>(TModel model, string key, CancellationToken token)
         {
             var op = Addressables.InstantiateAsync(key, _canvas.transform);
             await op.ToUniTask(cancellationToken: token);

@@ -14,8 +14,6 @@ namespace Common.Configs
         public IReadOnlyList<PuzzleInfoConfig> Puzzles => _puzzles;
         
 #if UNITY_EDITOR
-        public void Validate() => OnValidate();
-        
         private void OnValidate()
         {
             _puzzles = AssetDatabase.FindAssets($"t:{nameof(PuzzleInfoConfig)}")

@@ -21,8 +21,6 @@ namespace Common.PuzzlesManager
             IsInitialized = true;
         }
         
-        public PuzzleInfoConfig GetPuzzleInfo(string id) => _catalog.Puzzles.Single(p => p.Id == id);
-        
         public IReadOnlyList<PuzzleInfoConfig> AllPuzzles => _catalog.Puzzles;
     }
 }

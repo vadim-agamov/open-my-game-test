@@ -62,9 +62,7 @@ namespace Modules.Initializator
                 if (node.Initializable.IsInitialized)
                     continue;
 
-                Debug.Log($"[{nameof(Initializator)}] Begin: {node.Initializable.GetType().Name}");
                 await node.Initializable.Initialize(cancellationToken);
-                Debug.Log($"[{nameof(Initializator)}] End: {node.Initializable.GetType().Name}");
                 progress?.Report(++completed / (float)allDependencies.Length);
             }
         }

@@ -1,9 +1,9 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Meta.MetaScreen;
+using Modules.DiContainer;
 using Modules.Fsm;
 using Modules.UIService;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Meta
@@ -16,8 +16,8 @@ namespace Meta
         async UniTask IState.OnEnter(CancellationToken token)
         {
             await SceneManager.LoadSceneAsync("Scenes/Meta").ToUniTask(cancellationToken: token);
-
-            _metaScreenPresenter = await UIService.Create<MetaScreenModel, MetaScreenView, MetaScreenPresenter>(new MetaScreenModel(), MetaScreenPresenter.KEY, token);
+            
+            _metaScreenPresenter = await UIService.Create<MetaScreenModel, MetaScreenView, MetaScreenPresenter>(new MetaScreenModel().WithDependencies(), MetaScreenPresenter.KEY, token);
             await _metaScreenPresenter.Show(token);
         } 
 

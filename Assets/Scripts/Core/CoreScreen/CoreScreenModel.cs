@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Modules.UIService;
 
 namespace Meta.MetaScreen

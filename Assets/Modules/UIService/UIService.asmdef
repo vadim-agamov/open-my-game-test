@@ -5,7 +5,6 @@
         "DiContainer",
         "Initializator",
         "UniTask",
-        "Events",
         "UniTask.Addressables",
         "Unity.ResourceManager",
         "Unity.Addressables"

@@ -22,6 +22,8 @@ namespace Common.Configs
         public string Description => _description;
         public string Category => _category;
         public AssetReferenceSprite PreviewImage => _previewImage;
+        
+        // TODO: add reference to config with puzzle data
 
         private void OnValidate()
         {

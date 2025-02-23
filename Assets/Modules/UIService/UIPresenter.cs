@@ -6,7 +6,7 @@ namespace Modules.UIService
 {
     public abstract class UIPresenter : IDisposable
     {
-        public UIView ViewBase { get; private set; }
+        public UIView ViewBase { get; }
         
         protected UIPresenter(UIView view)
         {
@@ -32,7 +32,6 @@ namespace Modules.UIService
         public void UpdateModel(TModel model) => Model = model;
         public virtual UniTask Show(CancellationToken cancellationToken) => View.Show(cancellationToken);
         public virtual UniTask Hide(CancellationToken cancellationToken) => View.Hide(cancellationToken);
-
         public override void Dispose() { }
     }
 }

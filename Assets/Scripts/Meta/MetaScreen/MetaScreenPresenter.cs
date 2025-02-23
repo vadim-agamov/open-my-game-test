@@ -16,8 +16,7 @@ namespace Meta.MetaScreen
         public const string KEY = "MetaScreen";
         private const int PAGE_SIZE = 10;
         private int _currentPage = 0;
-        private int TotalPages => PuzzlesManager.AllPuzzles.Count / PAGE_SIZE;
-        private PuzzlesManager PuzzlesManager { get; set; }
+        private int TotalPages => Model.AllPuzzles.Count / PAGE_SIZE;
         private IUIService UIService { get; set; }
         
         private PuzzleStartWindowPresenter _puzzleStartWindowPresenter;
@@ -27,9 +26,8 @@ namespace Meta.MetaScreen
         }
         
         [Inject]
-        public void Initialize(PuzzlesManager puzzlesManager, UIService uiService)
+        private void Initialize(UIService uiService)
         {
-            PuzzlesManager = puzzlesManager;
             UIService = uiService;
         }
 
@@ -59,7 +57,7 @@ namespace Meta.MetaScreen
         }
 
         private IReadOnlyList<PuzzleInfoConfig> GetPage(int index) =>
-            PuzzlesManager.AllPuzzles
+            Model.AllPuzzles
                 .Skip(index * PAGE_SIZE)
                 .Take(PAGE_SIZE)
                 .ToList();
