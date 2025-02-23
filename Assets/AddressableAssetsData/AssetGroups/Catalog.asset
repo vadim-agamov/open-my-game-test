@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Catalog
+  m_EditorClassIdentifier: 
+  m_GroupName: Catalog
+  m_GUID: 659c5058927c24b519e87ec654bf3c65
+  m_SerializeEntries:
+  - m_GUID: fdd804e514b794908b0578f5585a2ade
+    m_Address: PuzzleCatalog
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0d9a6a8dc54e64e5c85144f39f6888b4, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6c801cf6bd1be4bd2b427a85529c95e6, type: 2}
+    - {fileID: 11400000, guid: 666eea9c0fcc64c2085da92d2998a13c, type: 2}
