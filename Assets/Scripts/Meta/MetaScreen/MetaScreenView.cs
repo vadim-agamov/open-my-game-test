@@ -28,6 +28,12 @@ namespace Meta.MetaScreen
             _scrollRect.onValueChanged.AddListener(OnScroll);
         }
 
+        public override async UniTask Hide(CancellationToken token)
+        {
+            await base.Hide(token);
+            _scrollRect.onValueChanged.RemoveListener(OnScroll);
+        }
+
         private void OnScroll(Vector2 position)
         {
             if (position.y <= 0)
